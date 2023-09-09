@@ -29,6 +29,6 @@ for filepath in newFiles:
 	o = os.path.join(destinationDirectory, newFile)
 	if os.path.isfile(o):
 		continue
-	encodeCommand = f'ffmpeg -i "{i}" -vf scale=-2:480,subtitles="{video}":force_style='PrimaryColour=&H0300FFFF&,MarginV=50' -c:v libx264 -profile:v baseline -level 3.0 -preset fast -crf 23 -pix_fmt yuv420p "{o}"'
+	encodeCommand = f'ffmpeg -i "{i}" -vf "scale=-2:480,"subtitles="{video}":force_style='PrimaryColour=&H0300FFFF&,MarginV=50'"" -c:v libx264 -profile:v baseline -level 3.0 -preset fast -crf 23 -pix_fmt yuv420p "{o}"'
 	print('Encoding %s' % newFile)
 	encode = os.popen(encodeCommand).read()
